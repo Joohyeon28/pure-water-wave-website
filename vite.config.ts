@@ -4,21 +4,24 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: "/pure-water-wave-website/", // ✅ THIS IS THE FIX
+export default defineConfig(({ mode }) => {
+  const isVercel = Boolean(process.env.VERCEL);
+  return {
+    base: isVercel ? "/" : "/pure-water-wave-website/",
 
-  server: {
+    server: {
     host: "::",
     port: 8080,
     hmr: {
       overlay: false,
     },
-  },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
     },
-    dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime"],
-  },
-}));
+    plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+      dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime"],
+    },
+  };
+});
