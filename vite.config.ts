@@ -6,8 +6,9 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const isVercel = Boolean(process.env.VERCEL);
+  const isNetlify = Boolean(process.env.NETLIFY);
   return {
-    base: isVercel ? "/" : "/pure-water-wave-website/",
+    base: isVercel || isNetlify ? "/" : "/pure-water-wave-website/",
 
     server: {
     host: "::",
