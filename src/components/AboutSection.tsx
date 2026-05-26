@@ -8,7 +8,7 @@ const features = [
 ];
 
 const AboutSection = () => (
-  <section id="about" className="py-20 sm:py-28">
+  <section id="about" className="py-20 sm:py-28 bg-background">
     <div className="container mx-auto px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -32,9 +32,9 @@ const AboutSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.15 }}
-            className="glass-card p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all"
+            className="glass-card p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all group hover:ring-2 hover:ring-primary/10 hover:ring-offset-2"
           >
-            <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-5">
+            <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-5 border border-primary/20">
               <f.icon className="w-7 h-7 text-primary-foreground" />
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">{f.title}</h3>

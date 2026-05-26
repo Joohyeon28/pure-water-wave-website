@@ -2,7 +2,7 @@ import { Droplets, Sparkles, Truck, TestTubes, CalendarDays } from "lucide-react
 import { motion } from "framer-motion";
 
 const PricingSection = () => (
-  <section id="pricing" className="py-20 sm:py-28 gradient-water">
+  <section id="pricing" className="py-20 sm:py-28 bg-muted/40">
     <div className="container mx-auto px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,8 @@ const PricingSection = () => (
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="glass-card p-8 text-center border-primary/30 hover:shadow-xl transition-all relative overflow-hidden"
+          className="glass-card p-8 text-center border border-accent/40 hover:shadow-xl transition-all relative overflow-hidden"
+          style={{ background: "linear-gradient(to bottom, hsl(200, 100%, 98%), white)" }}
         >
           <div className="absolute top-4 right-4 gradient-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
             Premium

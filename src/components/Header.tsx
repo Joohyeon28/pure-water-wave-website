@@ -23,7 +23,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-card/80 backdrop-blur-xl shadow-md border-b border-border/50"
+          ? "bg-[hsl(215,70%,8%)]/95 backdrop-blur-xl border-b border-white/10"
           : "bg-transparent"
       }`}
     >
@@ -31,7 +31,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a href="#home" className="flex items-center gap-2 text-primary font-bold text-lg">
             <Droplets className="w-6 h-6" />
-            <span className="hidden sm:inline">Pure Water Wave</span>
+            <span>Extension Water</span>
           </a>
 
           {/* Desktop nav */}
@@ -40,7 +40,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors"
               >
                 {link.label}
               </a>

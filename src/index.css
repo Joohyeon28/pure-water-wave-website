@@ -6,39 +6,41 @@
 
 @layer base {
   :root {
-    --background: 200 20% 98%;
-    --foreground: 210 50% 10%;
+    --background: 210 30% 98%;
+    --foreground: 215 60% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 50% 10%;
+    --card-foreground: 215 60% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 50% 10%;
+    --popover-foreground: 215 60% 8%;
 
-    --primary: 205 85% 45%;
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 30% 94%;
-    --secondary-foreground: 210 50% 15%;
+    --secondary: 205 40% 94%;
+    --secondary-foreground: 215 60% 12%;
 
-    --muted: 200 20% 95%;
-    --muted-foreground: 210 15% 45%;
+    --muted: 210 25% 95%;
+    --muted-foreground: 215 20% 45%;
 
-    --accent: 195 90% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 215 60% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 200 25% 90%;
-    --input: 200 25% 90%;
-    --ring: 205 85% 45%;
+    --border: 210 30% 88%;
+    --input: 210 30% 88%;
+    --ring: 210 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --water-light: 195 100% 95%;
-    --water-mid: 200 80% 85%;
-    --water-deep: 210 70% 30%;
+    --water-deep: 215 70% 8%;
+    --water-navy: 215 60% 14%;
+    --water-mid: 210 100% 50%;
+    --water-cyan: 195 100% 50%;
+    --water-ice: 200 100% 96%;
     --glass-bg: 200 60% 98% / 0.7;
     --glass-border: 200 60% 90% / 0.5;
 
@@ -74,13 +76,13 @@
     background: linear-gradient(135deg, hsl(195 100% 95%), hsl(205 85% 90%), hsl(200 80% 85%));
   }
   .gradient-hero {
-    background: linear-gradient(160deg, hsl(200 20% 98%) 0%, hsl(195 100% 95%) 40%, hsl(205 85% 88%) 70%, hsl(200 80% 82%) 100%);
+    background: linear-gradient(160deg, hsl(215 70% 8%) 0%, hsl(215 60% 14%) 40%, hsl(210 65% 20%) 70%, hsl(205 60% 25%) 100%);
   }
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(205 85% 45%), hsl(195 90% 50%));
+    background: linear-gradient(135deg, hsl(210 100% 50%), hsl(195 100% 50%));
   }
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(210 70% 30%), hsl(205 85% 45%), hsl(195 90% 50%));
+    background-image: linear-gradient(135deg, hsl(195 100% 50%), hsl(210 100% 50%));
   }
 }

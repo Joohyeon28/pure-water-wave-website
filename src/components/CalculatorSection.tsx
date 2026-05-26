@@ -32,7 +32,7 @@ const CalculatorSection = () => {
                 onClick={() => setType("purified")}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all ${
                   type === "purified"
-                    ? "gradient-primary text-primary-foreground shadow-md"
+                    ? "bg-accent text-[hsl(215,70%,8%)] shadow-md"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -43,7 +43,7 @@ const CalculatorSection = () => {
                 onClick={() => setType("alkaline")}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all ${
                   type === "alkaline"
-                    ? "gradient-primary text-primary-foreground shadow-md"
+                    ? "bg-accent text-[hsl(215,70%,8%)] shadow-md"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -63,7 +63,7 @@ const CalculatorSection = () => {
                 placeholder="e.g. 25"
                 value={litres}
                 onChange={(e) => setLitres(e.target.value)}
-                className="w-full px-5 py-4 rounded-xl bg-secondary border border-border text-foreground text-lg font-medium focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                className="w-full px-5 py-4 rounded-xl bg-secondary border border-border text-foreground text-lg font-medium focus:outline-none focus:ring-2 focus:ring-accent/40 transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">
                 litres
@@ -71,16 +71,16 @@ const CalculatorSection = () => {
             </div>
 
             {/* Result */}
-            <div className="gradient-primary rounded-xl p-6 text-center">
-              <div className="flex items-center justify-center gap-2 text-primary-foreground/80 text-sm mb-1">
+            <div className="bg-[hsl(215,70%,8%)] rounded-2xl p-6 text-center">
+              <div className="flex items-center justify-center gap-2 text-white/80 text-sm mb-1">
                 <Calculator className="w-4 h-4" />
                 Total Price
               </div>
-              <div className="text-4xl sm:text-5xl font-extrabold text-primary-foreground">
+              <div className="text-4xl sm:text-5xl font-extrabold text-white">
                 R{isValid ? total : "0.00"}
               </div>
               {isValid && parseFloat(litres) >= 100 && (
-                <p className="text-primary-foreground/80 text-sm mt-2">
+                <p className="text-accent text-sm mt-2">
                   🚚 Free delivery included!
                 </p>
               )}
