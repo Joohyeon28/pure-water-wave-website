@@ -2,11 +2,11 @@ import { MapPin, Navigation, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 
 const address = "22 Nutmeg Street, Protea Glen Ext 28";
-const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+const mapsUrl = "https://www.google.com/maps?q=-26.2838867,27.768125";
+const embedUrl = "https://maps.google.com/maps?q=-26.2838867,27.768125&z=17&output=embed";
 
 const LocationSection = () => (
-  <section id="location" className="py-20 sm:py-28 gradient-water">
+  <section id="location" className="py-20 sm:py-28 bg-muted/40">
     <div className="container mx-auto px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

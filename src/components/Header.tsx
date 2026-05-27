@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Droplets, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import extLogoImg from "@/assets/Extension Water Logo.jpeg";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -29,8 +30,8 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href="#home" className="flex items-center gap-2 text-primary font-bold text-lg">
-            <Droplets className="w-6 h-6" />
+          <a href="#home" className="flex items-center gap-2 font-bold text-lg text-white">
+            <img src={extLogoImg} alt="Extension Water" className="w-9 h-9 rounded-xl object-cover border border-white/20 shadow-md" />
             <span>Extension Water</span>
           </a>
 

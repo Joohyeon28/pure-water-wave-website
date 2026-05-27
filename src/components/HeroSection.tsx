@@ -1,6 +1,7 @@
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-water.jpg";
+import extLogoImg from "@/assets/Extension Water Logo.jpeg";
 
 const HeroSection = () => (
   <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
