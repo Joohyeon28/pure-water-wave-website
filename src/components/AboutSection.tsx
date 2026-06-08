@@ -3,6 +3,20 @@ import { motion } from "framer-motion";
 import storeFrontImg from "@/assets/Extension Water Store Front.jpeg";
 import extLogoImg from "@/assets/Extension Water Logo.jpeg";
 
+const LogoWatermark = () => (
+  <div
+    className="absolute inset-0 pointer-events-none select-none overflow-hidden"
+    aria-hidden="true"
+    style={{
+      backgroundImage: `url(${extLogoImg})`,
+      backgroundSize: "32%",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      opacity: 0.04,
+    }}
+  />
+);
+
 const features = [
   { icon: Droplets, title: "Pure & Clean", desc: "Multi-stage purification for crystal-clear water." },
   { icon: Shield, title: "Quality Tested", desc: "Rigorous quality checks at every step." },
@@ -10,7 +24,8 @@ const features = [
 ];
 
 const AboutSection = () => (
-  <section id="about" className="py-20 sm:py-28 bg-background">
+  <section id="about" className="relative py-20 sm:py-28 bg-background">
+    <LogoWatermark />
     <div className="container mx-auto px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

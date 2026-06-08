@@ -12,7 +12,7 @@ const Footer = () => (
           <p className="text-white/30 text-xs mt-1">Mineralised &amp; Alkaline Water — Protea Glen</p>
         </div>
         <div className="text-background/60 text-sm text-center">
-          © 2026 Extension Water. All rights reserved.
+          © Extension Water. All rights reserved.
         </div>
       </div>
     </div>

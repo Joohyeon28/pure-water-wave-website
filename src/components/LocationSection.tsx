@@ -19,14 +19,14 @@ const LocationSection = () => (
         <p className="text-muted-foreground">Visit our refill station today.</p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
         {/* Info */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="glass-card p-8 flex flex-col justify-center"
+          className="glass-card p-6 sm:p-8 flex flex-col justify-center"
         >
           <div className="flex items-start gap-4 mb-6">
             <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center shrink-0">
@@ -51,7 +51,7 @@ const LocationSection = () => (
             </div>
             <div>
               <h3 className="font-bold text-foreground text-lg mb-1">Now Open!</h3>
-              <p className="text-muted-foreground">Opening Date: 01 April 2026</p>
+              <p className="text-muted-foreground">Ready to serve your community.</p>
             </div>
           </div>
 
@@ -76,7 +76,7 @@ const LocationSection = () => (
         >
           <iframe
             src={embedUrl}
-            className="w-full h-full min-h-[320px]"
+            className="w-full h-full min-h-[260px] sm:min-h-[320px]"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"

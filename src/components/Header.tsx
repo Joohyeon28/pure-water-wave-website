@@ -28,11 +28,11 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-3 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <a href="#home" className="flex items-center gap-2 font-bold text-lg text-white">
-            <img src={extLogoImg} alt="Extension Water" className="w-9 h-9 rounded-xl object-cover border border-white/20 shadow-md" />
-            <span>Extension Water</span>
+          <a href="#home" className="flex items-center gap-2 font-bold text-base sm:text-lg text-white min-w-0">
+            <img src={extLogoImg} alt="Extension Water" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-cover border border-white/20 shadow-md shrink-0" />
+            <span className="truncate">Extension Water</span>
           </a>
 
           {/* Desktop nav */}
@@ -57,7 +57,8 @@ const Header = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-white p-2"
+            aria-label="Toggle navigation menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

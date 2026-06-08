@@ -25,12 +25,12 @@ const CalculatorSection = () => {
             <p className="text-muted-foreground">Find out your refill cost instantly.</p>
           </div>
 
-          <div className="glass-card p-8">
+          <div className="glass-card p-5 sm:p-8">
             {/* Water type toggle */}
             <div className="flex rounded-xl bg-secondary p-1 mb-6">
               <button
                 onClick={() => setType("purified")}
-                className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all ${
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                   type === "purified"
                     ? "bg-accent text-[hsl(215,70%,8%)] shadow-md"
                     : "text-muted-foreground hover:text-foreground"
@@ -41,7 +41,7 @@ const CalculatorSection = () => {
               </button>
               <button
                 onClick={() => setType("alkaline")}
-                className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-semibold transition-all ${
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
                   type === "alkaline"
                     ? "bg-accent text-[hsl(215,70%,8%)] shadow-md"
                     : "text-muted-foreground hover:text-foreground"
