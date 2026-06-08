@@ -7,7 +7,9 @@ const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#pricing", label: "Pricing" },
   { href: "#calculator", label: "Calculator" },
-  { href: "#location", label: "Location" },
+  { href: "#cooler-contract", label: "Cooler Contract" },
+  { href: "#loyalty", label: "Loyalty Programme" },
+  { href: "#location", label: "Contact" },
 ];
 
 const Header = () => {
@@ -35,7 +37,6 @@ const Header = () => {
             <span className="truncate">Extension Water</span>
           </a>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -54,7 +55,6 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden text-white p-2"
@@ -65,7 +65,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

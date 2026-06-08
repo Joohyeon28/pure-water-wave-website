@@ -1,11 +1,16 @@
-import { Sparkles } from "lucide-react";
+import { Sparkles, Droplets, Sparkle, Apple } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-water.jpg";
 import extLogoImg from "@/assets/Extension Water Logo.jpeg";
 
+const services = [
+  { icon: Droplets, label: "Purified Water" },
+  { icon: Sparkle, label: "Alkaline Water" },
+  { icon: Apple, label: "Fruit Juice" },
+];
+
 const HeroSection = () => (
   <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-    {/* Background water photo */}
     <img
       src={heroImg}
       alt=""
@@ -14,10 +19,8 @@ const HeroSection = () => (
       height={1080}
     />
 
-    {/* Gradient overlay — keeps all text crisp and readable */}
     <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,70%,8%)]/90 via-[hsl(215,60%,14%)]/70 to-background" />
 
-    {/* Full-section ultra-faint logo watermark — brand stamp visible but never competing with text */}
     <div
       className="absolute inset-0 pointer-events-none select-none"
       aria-hidden="true"
@@ -30,17 +33,14 @@ const HeroSection = () => (
       }}
     />
 
-    {/* Ambient right-side glow behind the featured logo */}
     <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-accent/10 via-primary/5 to-transparent pointer-events-none hidden sm:block" />
 
-    {/* Decorative blobs */}
     <div className="absolute top-20 left-2 sm:left-10 w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-primary/10 blur-3xl animate-float" />
     <div className="absolute bottom-32 left-2 sm:left-10 w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-accent/10 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
 
     <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-24 pb-12 sm:pb-16">
       <div className="grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-16 items-center min-h-[calc(100vh-6rem)]">
 
-        {/* ── Left: text content ─────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,58 +52,74 @@ const HeroSection = () => (
           </div>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white">
-            Water that comes
-            <br />from the earth itself
+            Inspired by
+            <br />source of life
             <br />
             <span className="text-accent text-xl sm:text-3xl md:text-4xl font-semibold">
-              Extension Water
+              EXTENSION WATER
             </span>
           </h1>
 
           <p className="mt-4 text-lg sm:text-xl text-white/80 font-medium">
             Mineralised &amp; Alkaline Water Refill Station
           </p>
-          <p className="mt-2 text-white/40 text-base sm:text-lg max-w-xl italic">
-            "Sourced and purified from the belly of the earth"
-          </p>
 
-          <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
+          <div className="mt-6 flex flex-wrap gap-3">
+            {services.map((s) => (
+              <div
+                key={s.label}
+                className="inline-flex items-center gap-1.5 bg-white/5 backdrop-blur border border-white/10 text-white/80 px-3 py-1.5 rounded-full text-xs sm:text-sm"
+              >
+                <s.icon className="w-3.5 h-3.5 text-accent" />
+                {s.label}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-4">
             <a
               href="#calculator"
-              className="gradient-primary text-primary-foreground px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-primary/25 transition-all hover:-translate-y-0.5 w-full sm:w-auto text-center"
+              className="gradient-primary text-primary-foreground px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-bold text-xs sm:text-sm hover:shadow-xl hover:shadow-primary/25 transition-all hover:-translate-y-0.5 text-center"
             >
-              Calculate Your Refill Price
+              Calculate Your Price
             </a>
             <a
               href="#pricing"
-              className="bg-white/10 backdrop-blur border border-white/20 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-white/20 transition-all w-full sm:w-auto text-center"
+              className="bg-white/10 backdrop-blur border border-white/20 text-white px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm hover:bg-white/20 transition-all text-center"
             >
               View Pricing
+            </a>
+            <a
+              href="#cooler-contract"
+              className="bg-white/10 backdrop-blur border border-white/20 text-white px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm hover:bg-white/20 transition-all text-center"
+            >
+              Cooler Contract
+            </a>
+            <a
+              href="#loyalty"
+              className="bg-white/10 backdrop-blur border border-white/20 text-white px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm hover:bg-white/20 transition-all text-center"
+            >
+              Loyalty Programme
             </a>
           </div>
         </motion.div>
 
-        {/* ── Right: featured logo showcase ──────────────────────── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.82 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1, delay: 0.35, ease: "easeOut" }}
           className="hidden lg:flex items-center justify-center relative"
         >
-          {/* Expanding ripple rings */}
           <div className="absolute w-[460px] h-[460px] rounded-full border border-accent/20 animate-ripple" />
           <div
             className="absolute w-[400px] h-[400px] rounded-full border border-accent/15 animate-ripple"
             style={{ animationDelay: "1s" }}
           />
 
-          {/* Cyan glow halo */}
           <div className="absolute w-[320px] h-[320px] rounded-full bg-accent/20 blur-[70px] animate-float" />
 
-          {/* Frosted-glass backing disc */}
           <div className="absolute w-[300px] h-[300px] rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_80px_rgba(0,200,255,0.12)]" />
 
-          {/* The logo — gently floating with a cyan depth glow */}
           <motion.img
             src={extLogoImg}
             alt="Extension Water logo"
