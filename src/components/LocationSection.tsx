@@ -1,9 +1,10 @@
 import { MapPin, Navigation, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import { BUSINESS_INFO } from "@/lib/business-info";
 
-const address = "22 Nutmeg Street, Protea Glen Ext 28";
-const mapsUrl = "https://www.google.com/maps?q=-26.2838867,27.768125";
-const embedUrl = "https://maps.google.com/maps?q=-26.2838867,27.768125&z=17&output=embed";
+const address = BUSINESS_INFO.addressLines.slice(0, 2).join(", ");
+const mapsUrl = `https://www.google.com/maps?q=${BUSINESS_INFO.coordinates.lat},${BUSINESS_INFO.coordinates.lng}`;
+const embedUrl = `https://maps.google.com/maps?q=${BUSINESS_INFO.coordinates.lat},${BUSINESS_INFO.coordinates.lng}&z=17&output=embed`;
 
 const LocationSection = () => (
   <section id="location" className="py-20 sm:py-28 bg-muted/40">

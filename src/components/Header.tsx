@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import extLogoImg from "@/assets/Extension Water Logo.jpeg";
+import CartButton from "@/components/CartButton";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -55,13 +56,16 @@ const Header = () => {
             </a>
           </nav>
 
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-white p-2"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-1 sm:gap-2">
+            <CartButton />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden text-white p-2"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
