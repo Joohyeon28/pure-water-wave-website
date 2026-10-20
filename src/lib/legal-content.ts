@@ -81,7 +81,7 @@ export const privacyPolicy: LegalSection[] = [
   {
     heading: "How to contact us",
     body: [
-      `Email ${BUSINESS_INFO.email} for any privacy question or request.`, // TODO: confirm this address is monitored
+      `Email ${BUSINESS_INFO.email} for any privacy question or request.`,
       `Our address is ${BUSINESS_INFO.addressLines.join(", ")}.`,
     ],
   },

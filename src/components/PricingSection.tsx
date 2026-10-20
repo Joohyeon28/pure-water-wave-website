@@ -23,7 +23,7 @@ const productKeys: ProductKey[] = ["purified", "alkaline", "fruitJuice"];
 const productLabels: Record<ProductKey, string> = {
   purified: "Purified Water",
   alkaline: "Alkaline Water",
-  fruitJuice: "Fruit Juice",
+  fruitJuice: "100% Fruit Juice",
 };
 
 const refillKeys: Record<ProductKey, RefillKey> = {
@@ -44,7 +44,17 @@ const bottleKeys: Record<ProductKey, "purified" | "alkaline" | undefined> = {
   fruitJuice: undefined,
 };
 
-const containerSizes: ProductUnit[] = ["500ml", "1L", "2L", "5L", "10L"];
+interface SizeOption {
+  label: string;
+  unit: ProductUnit;
+}
+
+const sizeOptions: SizeOption[] = [
+  { label: "330ml", unit: "330ml" },
+  { label: "500ml", unit: "500ml" },
+  { label: "1.5Lt", unit: "1.5L" },
+  { label: "5Lt", unit: "5L" },
+];
 
 const productIcons: Record<ProductKey, React.ElementType> = {
   purified: Droplets,
@@ -93,7 +103,7 @@ const PricingSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Our Pricing</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Our Prices</h2>
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold">
             <CalendarDays className="w-4 h-4" />
             Opening Special
@@ -171,7 +181,7 @@ const PricingSection = () => {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-8">Bottle Prices</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-8">Bottled</h3>
             <div className="glass-card overflow-hidden p-0">
               <Table>
                 <TableHeader>
@@ -185,14 +195,14 @@ const PricingSection = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {containerSizes.map((size) => (
-                    <TableRow key={size} className="hover:bg-muted/30 transition-colors">
-                      <TableCell className="font-semibold text-foreground">{size}</TableCell>
+                  {sizeOptions.map((size) => (
+                    <TableRow key={size.unit} className="hover:bg-muted/30 transition-colors">
+                      <TableCell className="font-semibold text-foreground">{size.label}</TableCell>
                       {productKeys.map((key) => {
                         const bottle = getBottlePrice(
                           products,
                           bottleCategories[key],
-                          size,
+                          size.unit,
                           bottleKeys[key],
                         );
 
@@ -203,7 +213,7 @@ const PricingSection = () => {
                             ) : bottle ? (
                               formatCents(bottle.price_cents)
                             ) : (
-                              "—"
+                              "N/A"
                             )}
                           </TableCell>
                         );

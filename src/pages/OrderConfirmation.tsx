@@ -1,5 +1,6 @@
 import { Link, useLocation, useParams } from "react-router-dom";
-import { Printer } from "lucide-react";
+import { ArrowLeft, Printer } from "lucide-react";
+import LineKindBadge from "@/components/LineKindBadge";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -13,6 +14,7 @@ import {
 } from "@/components/ui/table";
 import { useOrderQuery } from "@/hooks/useOrder";
 import { formatCents } from "@/lib/format";
+import { lineKindFromSku } from "@/lib/line-kind";
 
 function titleCase(value: string): string {
   if (value.length === 0) {
@@ -84,10 +86,18 @@ const OrderConfirmation = () => {
             </div>
           </div>
 
-          <Button type="button" variant="outline" onClick={() => window.print()}>
-            <Printer className="h-4 w-4" />
-            Print
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild variant="outline">
+              <Link to="/">
+                <ArrowLeft className="h-4 w-4" />
+                Back to home
+              </Link>
+            </Button>
+            <Button type="button" variant="outline" onClick={() => window.print()}>
+              <Printer className="h-4 w-4" />
+              Print
+            </Button>
+          </div>
         </div>
 
         <p className="mb-8 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-800">
@@ -134,8 +144,8 @@ const OrderConfirmation = () => {
           <Table>
             <TableHeader>
               <TableRow className="bg-muted/50">
-                <TableHead className="text-foreground">SKU</TableHead>
                 <TableHead className="text-foreground">Item</TableHead>
+                <TableHead className="text-foreground">Type</TableHead>
                 <TableHead className="text-right text-foreground">Qty</TableHead>
                 <TableHead className="text-right text-foreground">Unit price</TableHead>
                 <TableHead className="text-right text-foreground">Line total</TableHead>
@@ -144,8 +154,10 @@ const OrderConfirmation = () => {
             <TableBody>
               {order.items.map((item) => (
                 <TableRow key={`${item.sku}-${item.name}`}>
-                  <TableCell className="font-medium text-foreground">{item.sku}</TableCell>
-                  <TableCell className="text-foreground">{item.name}</TableCell>
+                  <TableCell className="font-medium text-foreground">{item.name}</TableCell>
+                  <TableCell>
+                    <LineKindBadge kind={lineKindFromSku(item.sku)} />
+                  </TableCell>
                   <TableCell className="text-right text-muted-foreground">
                     {item.quantity}
                   </TableCell>
@@ -183,6 +195,15 @@ const OrderConfirmation = () => {
             </div>
           </div>
         </section>
+
+        <div className="mt-6">
+          <Button asChild className="w-full">
+            <Link to="/">
+              <ArrowLeft className="h-4 w-4" />
+              Return to home
+            </Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

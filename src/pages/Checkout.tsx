@@ -4,6 +4,7 @@ import { z } from "zod";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import LineKindBadge from "@/components/LineKindBadge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,6 +15,7 @@ import { useSupabase } from "@/lib/supabase-context";
 import { createOrder } from "@/lib/orders";
 import type { CreateOrderCustomer } from "@/lib/orders";
 import { formatCents } from "@/lib/format";
+import { lineKindFromUnit } from "@/lib/line-kind";
 
 const checkoutSchema = z
   .object({
@@ -210,7 +212,10 @@ const Checkout = () => {
                   className="flex items-start justify-between gap-4 text-sm"
                 >
                   <div className="min-w-0">
-                    <p className="truncate font-medium text-foreground">{line.name}</p>
+                    <div className="flex items-center gap-2">
+                      <p className="truncate font-medium text-foreground">{line.name}</p>
+                      <LineKindBadge kind={lineKindFromUnit(line.unit)} />
+                    </div>
                     <p className="text-xs text-muted-foreground">
                       {line.quantity} × {formatCents(line.unitPriceCents)}
                     </p>

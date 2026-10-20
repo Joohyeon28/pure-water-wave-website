@@ -3,7 +3,7 @@ import { parseCentsFromRands } from "@/lib/format";
 import type { TablesInsert, TablesUpdate } from "@/types/supabase";
 
 export const productCategories = ["refill", "bottle", "juice", "cooler"] as const;
-export const productUnits = ["litre", "500ml", "1L", "2L", "5L", "10L", "contract"] as const;
+export const productUnits = ["litre", "500ml", "1L", "1.5L", "2L", "5L", "10L", "330ml", "contract"] as const;
 
 export type ProductCategory = (typeof productCategories)[number];
 export type ProductUnit = (typeof productUnits)[number];
@@ -19,9 +19,11 @@ export const unitLabels: Record<ProductUnit, string> = {
   litre: "Litre",
   "500ml": "500ml",
   "1L": "1L",
+  "1.5L": "1.5Lt",
   "2L": "2L",
-  "5L": "5L",
+  "5L": "5Lt",
   "10L": "10L",
+  "330ml": "330ml",
   contract: "Contract",
 };
 

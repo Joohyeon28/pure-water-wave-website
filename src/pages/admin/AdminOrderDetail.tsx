@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
 import { ArrowLeft, Loader2 } from "lucide-react";
+import LineKindBadge from "@/components/LineKindBadge";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -30,6 +31,7 @@ import {
 } from "@/components/ui/table";
 import { useAdminOrderQuery, useUpdateOrderStatus } from "@/hooks/useAdminOrders";
 import { formatCents } from "@/lib/format";
+import { lineKindFromSku } from "@/lib/line-kind";
 import {
   canCancel,
   canMarkFulfilled,
@@ -177,6 +179,7 @@ const AdminOrderDetail = () => {
                   <TableRow>
                     <TableHead>SKU</TableHead>
                     <TableHead>Item</TableHead>
+                    <TableHead>Type</TableHead>
                     <TableHead className="text-right">Qty</TableHead>
                     <TableHead className="text-right">Unit price</TableHead>
                     <TableHead className="text-right">Line total</TableHead>
@@ -187,6 +190,9 @@ const AdminOrderDetail = () => {
                     <TableRow key={item.id}>
                       <TableCell className="font-medium text-foreground">{item.sku}</TableCell>
                       <TableCell className="text-foreground">{item.name}</TableCell>
+                      <TableCell>
+                        <LineKindBadge kind={lineKindFromSku(item.sku)} />
+                      </TableCell>
                       <TableCell className="text-right text-muted-foreground">
                         {item.quantity}
                       </TableCell>

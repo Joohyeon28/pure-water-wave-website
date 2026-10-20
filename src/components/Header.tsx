@@ -6,11 +6,10 @@ import CartButton from "@/components/CartButton";
 
 const navLinks = [
   { href: "#home", label: "Home" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "#pricing", label: "Prices" },
   { href: "#calculator", label: "Calculator" },
-  { href: "#cooler-contract", label: "Cooler Contract" },
   { href: "#loyalty", label: "Loyalty Programme" },
-  { href: "#location", label: "Contact" },
+  { href: "#location", label: "Find Us" },
 ];
 
 const Header = () => {

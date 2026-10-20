@@ -90,12 +90,6 @@ const HeroSection = () => (
               View Pricing
             </a>
             <a
-              href="#cooler-contract"
-              className="bg-white/10 backdrop-blur border border-white/20 text-white px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm hover:bg-white/20 transition-all text-center"
-            >
-              Cooler Contract
-            </a>
-            <a
               href="#loyalty"
               className="bg-white/10 backdrop-blur border border-white/20 text-white px-5 sm:px-7 py-3 sm:py-3.5 rounded-full font-semibold text-xs sm:text-sm hover:bg-white/20 transition-all text-center"
             >

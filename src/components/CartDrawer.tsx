@@ -1,5 +1,6 @@
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import LineKindBadge from "@/components/LineKindBadge";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -11,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { useCart } from "@/context/cart-context";
 import { formatCents } from "@/lib/format";
+import { lineKindFromUnit } from "@/lib/line-kind";
 import { MAX_LINE_QUANTITY } from "@/lib/cart-types";
 
 interface CartDrawerProps {
@@ -57,7 +59,10 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
                   className="flex gap-3 rounded-lg border border-border p-3"
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="truncate font-medium text-foreground">{line.name}</p>
+                    <div className="flex items-center gap-2">
+                      <p className="truncate font-medium text-foreground">{line.name}</p>
+                      <LineKindBadge kind={lineKindFromUnit(line.unit)} />
+                    </div>
                     <p className="text-xs text-muted-foreground">
                       {line.unit} · {formatCents(line.unitPriceCents)}
                     </p>

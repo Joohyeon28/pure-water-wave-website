@@ -8,15 +8,15 @@ const PromoBar = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,0.35)] px-5 sm:px-10 py-9 sm:py-12">
           <p className="text-base sm:text-2xl font-semibold tracking-tight text-white leading-relaxed">
-            Want a website like this? Send enquiries to joohyeonstemmer28@gmail.com
+            Want a website like this? Send enquiries to extensionwater@gmail.com
           </p>
 
           <a
-            href="mailto:joohyeonstemmer28@gmail.com"
+            href="mailto:extensionwater@gmail.com"
             className="mt-7 inline-flex items-center justify-center rounded-full gradient-primary text-primary-foreground font-semibold text-xs sm:text-base px-5 sm:px-8 py-3.5 shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/35 max-w-full break-all"
             aria-label="Send enquiry email"
           >
-            Email: joohyeonstemmer28@gmail.com
+            Email: extensionwater@gmail.com
           </a>
         </div>
       </div>
