@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -15,6 +16,7 @@ import { useSupabase } from "@/lib/supabase-context";
 import { createOrder } from "@/lib/orders";
 import type { CreateOrderCustomer } from "@/lib/orders";
 import { formatCents } from "@/lib/format";
+import { freeDeliveryThresholdCents } from "@/lib/pricing-selectors";
 import { lineKindFromUnit } from "@/lib/line-kind";
 
 const checkoutSchema = z
@@ -43,6 +45,7 @@ const Checkout = () => {
     handleSubmit,
     control,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<CheckoutValues>({
     resolver: zodResolver(checkoutSchema),
@@ -57,19 +60,28 @@ const Checkout = () => {
   });
 
   const fulfilment = watch("fulfilment");
+  const deliveryAvailable = subtotalCents >= freeDeliveryThresholdCents();
+
+  useEffect(() => {
+    if (!deliveryAvailable && fulfilment === "delivery") {
+      setValue("fulfilment", "pickup", { shouldValidate: true });
+    }
+  }, [deliveryAvailable, fulfilment, setValue]);
 
   const onSubmit = handleSubmit(async (values) => {
     if (lines.length === 0) {
       return;
     }
 
+    const effectiveFulfilment = deliveryAvailable ? values.fulfilment : "pickup";
+
     const customer: CreateOrderCustomer = {
       name: values.name.trim(),
       email: values.email.trim(),
       phone: values.phone.trim(),
-      fulfilment: values.fulfilment,
+      fulfilment: effectiveFulfilment,
       deliveryAddress:
-        values.fulfilment === "delivery" ? values.deliveryAddress.trim() : undefined,
+        effectiveFulfilment === "delivery" ? values.deliveryAddress.trim() : undefined,
       notes: values.notes.trim().length > 0 ? values.notes.trim() : undefined,
       channel: "online",
     };
@@ -163,12 +175,27 @@ const Checkout = () => {
                       <Label htmlFor="fulfilment-pickup">Pickup</Label>
                     </div>
                     <div className="flex items-center gap-2">
-                      <RadioGroupItem value="delivery" id="fulfilment-delivery" />
-                      <Label htmlFor="fulfilment-delivery">Delivery</Label>
+                      <RadioGroupItem
+                        value="delivery"
+                        id="fulfilment-delivery"
+                        disabled={!deliveryAvailable}
+                      />
+                      <Label
+                        htmlFor="fulfilment-delivery"
+                        className={!deliveryAvailable ? "text-muted-foreground/60" : undefined}
+                      >
+                        Delivery
+                      </Label>
                     </div>
                   </RadioGroup>
                 )}
               />
+              {!deliveryAvailable ? (
+                <p className="text-xs text-muted-foreground">
+                  Delivery is available on orders of R500 or more. Add{" "}
+                  {formatCents(freeDeliveryThresholdCents() - subtotalCents)} more to qualify.
+                </p>
+              ) : null}
             </div>
 
             {fulfilment === "delivery" ? (

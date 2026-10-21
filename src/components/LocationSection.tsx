@@ -1,4 +1,4 @@
-import { MapPin, Navigation, Clock } from "lucide-react";
+import { MapPin, Navigation } from "lucide-react";
 import { motion } from "framer-motion";
 import { BUSINESS_INFO } from "@/lib/business-info";
 
@@ -43,16 +43,6 @@ const LocationSection = () => (
               >
                 {address}
               </a>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4 mb-6">
-            <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center shrink-0">
-              <Clock className="w-6 h-6 text-primary" />
-            </div>
-            <div>
-              <h3 className="font-bold text-foreground text-lg mb-1">Now Open!</h3>
-              <p className="text-muted-foreground">Ready to serve your community.</p>
             </div>
           </div>
 

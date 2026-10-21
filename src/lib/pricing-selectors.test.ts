@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
-  FREE_DELIVERY_THRESHOLD_LITRES,
-  freeDeliveryThresholdLitres,
+  FREE_DELIVERY_THRESHOLD_CENTS,
+  freeDeliveryThresholdCents,
   getBottlePrice,
   getBottleSku,
   getCoolerProduct,
@@ -261,8 +261,8 @@ describe("litreRefillCostCents", () => {
 });
 
 describe("free delivery threshold", () => {
-  it("is 100 litres", () => {
-    expect(FREE_DELIVERY_THRESHOLD_LITRES).toBe(100);
-    expect(freeDeliveryThresholdLitres()).toBe(100);
+  it("is R500 in cents", () => {
+    expect(FREE_DELIVERY_THRESHOLD_CENTS).toBe(50000);
+    expect(freeDeliveryThresholdCents()).toBe(50000);
   });
 });

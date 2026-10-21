@@ -22,7 +22,7 @@ import { MAX_LINE_QUANTITY } from "@/lib/cart-types";
 import { formatCents } from "@/lib/format";
 import { lineKindFromUnit } from "@/lib/line-kind";
 import {
-  freeDeliveryThresholdLitres,
+  freeDeliveryThresholdCents,
   getBottlePrice,
   getRefillProduct,
   litreRefillCostCents,
@@ -215,7 +215,7 @@ const RefillTab = ({ product, onProductChange, litres, onLitresChange }: RefillT
             R{total}
           </div>
         )}
-        {!isLoading && litres && litresValue >= freeDeliveryThresholdLitres() && (
+        {!isLoading && totalCents >= freeDeliveryThresholdCents() && (
           <p className="text-accent text-sm mt-2">Free delivery included!</p>
         )}
       </div>
@@ -367,6 +367,9 @@ const InStoreTab = ({
         ) : (
           <div className="text-4xl sm:text-5xl font-extrabold text-white">R{total}</div>
         )}
+        {!isLoading && totalCents >= freeDeliveryThresholdCents() && (
+          <p className="text-accent text-sm mt-2">Free delivery included!</p>
+        )}
       </div>
 
       <Button
@@ -472,6 +475,12 @@ const CalculatorSection = () => {
                     {formatCents(subtotalCents)}
                   </span>
                 </div>
+
+                {subtotalCents >= freeDeliveryThresholdCents() ? (
+                  <p className="mt-1 text-xs text-accent">
+                    Free delivery included within 10km.
+                  </p>
+                ) : null}
 
                 <Button asChild className="mt-3 w-full">
                   <Link to="/checkout">Go to checkout</Link>

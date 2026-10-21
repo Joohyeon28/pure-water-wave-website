@@ -6,10 +6,10 @@ export type RefillKey = "purified" | "alkaline" | "fruit_juice";
 export type BottleCategory = "bottle" | "juice";
 export type BottleKey = "purified" | "alkaline";
 
-export const FREE_DELIVERY_THRESHOLD_LITRES = 100;
+export const FREE_DELIVERY_THRESHOLD_CENTS = 50_000;
 
-export function freeDeliveryThresholdLitres(): number {
-  return FREE_DELIVERY_THRESHOLD_LITRES;
+export function freeDeliveryThresholdCents(): number {
+  return FREE_DELIVERY_THRESHOLD_CENTS;
 }
 
 export function getRefillProduct(products: ProductRow[], key: RefillKey): ProductRow | undefined {

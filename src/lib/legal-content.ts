@@ -114,7 +114,7 @@ export const termsAndConditions: LegalSection[] = [
   {
     heading: "Delivery and collection",
     body: [
-      "Delivery is free for orders of 100 litres or more within 10 km of the store.",
+      "Delivery is free for orders above R500 within 10 km of the store.",
       "Orders below that threshold, or outside the delivery area, can be collected from the store at 22 Nutmeg Street, Protea Glen Ext 28.",
       "Delivery times are estimates and may change.",
     ],

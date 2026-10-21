@@ -36,8 +36,9 @@ const AboutSection = () => (
       >
         <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">About Us</h2>
         <p className="text-muted-foreground text-lg leading-relaxed">
-          We provide high-quality purified and alkaline water at affordable prices. Our water is
-          carefully sourced, purified, and mineralised to ensure the best hydration experience.
+          We provide high-quality purified and alkaline water, plus 100% fruit juice, at affordable
+          prices. Our water is carefully sourced, purified, and mineralised to ensure the best
+          hydration experience.
         </p>
       </motion.div>
 
@@ -62,12 +63,12 @@ const AboutSection = () => (
         <div>
           <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">Visit Our Store</h3>
           <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-            Located in Protea Glen Ext 28, our modern refill station is open and ready to serve your community with the purest, most mineral-rich water — sourced straight from the earth.
+            Located in Protea Glen Ext 28, our modern refill station is open and ready to serve the community with purified water, alkaline water, and 100% fruit juice.
           </p>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 text-foreground">
               <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-              Purified &amp; Alkaline water available
+              Purified &amp; alkaline water, plus 100% fruit juice
             </div>
             <div className="flex items-center gap-3 text-foreground">
               <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
@@ -75,7 +76,7 @@ const AboutSection = () => (
             </div>
             <div className="flex items-center gap-3 text-foreground">
               <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-              Free delivery for 100L+ within 10km
+              Free delivery on orders above R500 within 10km
             </div>
           </div>
         </div>

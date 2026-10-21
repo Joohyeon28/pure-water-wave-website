@@ -1,4 +1,4 @@
-import { Sparkles, Droplets, Sparkle, Apple } from "lucide-react";
+import { Droplets, Sparkle, Apple } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-water.jpg";
 import extLogoImg from "@/assets/Extension Water Logo.jpeg";
@@ -46,11 +46,6 @@ const HeroSection = () => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 text-accent px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
-            Now Open
-          </div>
-
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white">
             Inspired by
             <br />source of life

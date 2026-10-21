@@ -324,7 +324,7 @@ const LoyaltyProgrammeSection = () => {
                         {formatCents(cooler.price_cents)}
                       </div>
                       <p className="mt-2 text-muted-foreground">
-                        For Only {formatCents(cooler.price_cents)} You Get
+                        For a once-off {formatCents(cooler.price_cents)} upfront, you get:
                       </p>
                     </>
                   ) : (
