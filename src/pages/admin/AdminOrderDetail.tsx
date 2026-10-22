@@ -30,6 +30,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useAdminOrderQuery, useUpdateOrderStatus } from "@/hooks/useAdminOrders";
+import { displayEmail } from "@/lib/contact";
 import { formatCents } from "@/lib/format";
 import { lineKindFromSku } from "@/lib/line-kind";
 import {
@@ -139,7 +140,9 @@ const AdminOrderDetail = () => {
                 </div>
                 <div>
                   <dt className="text-xs uppercase tracking-wide text-muted-foreground">Email</dt>
-                  <dd className="break-all text-foreground">{order.customer_email}</dd>
+                  <dd className="break-all text-foreground">
+                    {displayEmail(order.customer_email)}
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-xs uppercase tracking-wide text-muted-foreground">Phone</dt>

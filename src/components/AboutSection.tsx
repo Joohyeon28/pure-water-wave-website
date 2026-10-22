@@ -1,6 +1,6 @@
 import { Droplets, Shield, Heart } from "lucide-react";
 import { motion } from "framer-motion";
-import storeFrontImg from "@/assets/Extension Water Store Front.jpeg";
+import storeFrontImg from "@/assets/Extension Water Shop Front.jpeg";
 import extLogoImg from "@/assets/Extension Water Logo.jpeg";
 
 const LogoWatermark = () => (
@@ -53,7 +53,7 @@ const AboutSection = () => (
         <div className="relative">
           <img
             src={storeFrontImg}
-            alt="Extension Water store front"
+            alt="Extension Water shop front"
             className="rounded-3xl w-full object-cover shadow-2xl shadow-primary/10"
           />
           <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-xl hidden sm:block">

@@ -1,5 +1,6 @@
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import ClearCartButton from "@/components/ClearCartButton";
 import LineKindBadge from "@/components/LineKindBadge";
 import { Button } from "@/components/ui/button";
 import {
@@ -123,6 +124,9 @@ const CartDrawer = ({ open, onOpenChange }: CartDrawerProps) => {
             </div>
 
             <SheetFooter className="border-t border-border pt-4">
+              <div className="flex w-full justify-end">
+                <ClearCartButton />
+              </div>
               <div className="flex w-full items-center justify-between">
                 <span className="text-sm text-muted-foreground">Subtotal</span>
                 <span className="text-lg font-bold text-foreground">

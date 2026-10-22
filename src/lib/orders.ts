@@ -16,6 +16,7 @@ export interface CreateOrderCustomer {
   channel?: "online" | "in_store";
   markPaid?: boolean;
   paymentMethod?: "cash" | "card" | "eft" | "online";
+  scheduledFor?: string;
 }
 
 export interface CreatedOrder {
@@ -82,6 +83,7 @@ export async function createOrder(
       delivery_address: customer.deliveryAddress,
       notes: customer.notes,
       channel: customer.channel ?? "online",
+      scheduled_for: customer.scheduledFor,
     },
     p_mark_paid: customer.markPaid ?? false,
     p_payment_method: customer.paymentMethod ?? null,

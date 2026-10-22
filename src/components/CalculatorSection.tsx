@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Calculator, Droplets, Sparkle, Apple, ShoppingBag } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import ClearCartButton from "@/components/ClearCartButton";
 import LineKindBadge from "@/components/LineKindBadge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -443,11 +444,14 @@ const CalculatorSection = () => {
 
             {itemCount > 0 ? (
               <div className="mt-6 rounded-xl border border-border bg-secondary/50 p-4">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <h3 className="text-sm font-bold text-foreground">Your order so far</h3>
-                  <span className="text-xs text-muted-foreground">
-                    {itemCount} item{itemCount === 1 ? "" : "s"}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-muted-foreground">
+                      {itemCount} item{itemCount === 1 ? "" : "s"}
+                    </span>
+                    <ClearCartButton label="Clear" />
+                  </div>
                 </div>
 
                 <div className="mt-3 space-y-1">

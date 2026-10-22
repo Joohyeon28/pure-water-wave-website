@@ -23,6 +23,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useAdminOrdersQuery } from "@/hooks/useAdminOrders";
+import { displayEmail } from "@/lib/contact";
 import { formatCents } from "@/lib/format";
 import { ORDER_STATUSES, statusLabel, statusVariant } from "@/lib/admin-orders";
 
@@ -186,7 +187,7 @@ const AdminOrders = () => {
                   <TableCell>
                     <span className="block text-foreground">{order.customer_name}</span>
                     <span className="block text-xs text-muted-foreground">
-                      {order.customer_email}
+                      {displayEmail(order.customer_email)}
                     </span>
                   </TableCell>
                   <TableCell className="text-muted-foreground">
